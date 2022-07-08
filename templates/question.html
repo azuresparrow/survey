@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h4 class="my-5">{{question.question}}</h4>
+<form  action="/answer" method="post">
+        {% for choice in question.choices %}
+            <input type="radio" class="btn-check" name="option" value="{{choice}}" id="option{{loop.index}}" autocomplete="off">
+            <label class="btn btn-outline-primary" for="option{{loop.index}}">{{choice}}</label>
+        {% endfor %}
+    <div class="row mt-5"></div>
+    <input type="submit" class="btn btn-secondary">
+</form>
+{% endblock %}
